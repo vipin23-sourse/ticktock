@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
 
 export default function DashboardLayout({
   children,
@@ -14,12 +15,12 @@ export default function DashboardLayout({
       <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-4 sticky top-0 z-10">
         
         {/* Left Side: Logo & Links */}
-        <div className="flex items-center  w-full">
-          <Link href="/dashboard" className="text-2xl font-bold tracking-tight ">
+        <div className="flex items-center  w-full 2xl:gap-0 gap-10">
+          <Link href="/dashboard" className="text-2xl font-bold tracking-tight text-gray-900 ">
             ticktock
           </Link>
           
-          <nav className=" hidden max-w-7xl w-full mx-auto md:flex flex-1">
+          <nav className="max-w-7xl w-full mx-auto flex flex-1">
             <Link 
               href="/dashboard" 
               className="text-sm font-medium text-gray-900 hover:text-primary transition-colors"
@@ -29,36 +30,27 @@ export default function DashboardLayout({
           </nav>
         </div>
 
-        {/* Right Side: User Profile (Ready for shadcn DropdownMenu) */}
         <div className="flex items-center shrink-0 gap-3 cursor-pointer hover:opacity-80 transition-opacity">
           
-          <span className="text-sm font-medium text-gray-700 hidden md:block">
+          <span className="text-sm font-medium text-gray-700">
             John Doe
           </span>
           
-          {/* Dropdown Chevron Icon */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="16" 
-            height="16" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            className="text-gray-500 hidden md:block"
-          >
-            <path d="m6 9 6 6 6-6"/>
-          </svg>
+          <ChevronDown className="size-4 text-gray-500" />
         </div>
       </header>
 
       {/* Main Content Area */}
-      {/* The max-w-[90rem] ensures your content doesn't stretch infinitely on ultrawide monitors */}
-      <main className="flex-1 w-full max-w-7xl mx-auto mt-6">
+      <main className="flex-1 w-full max-w-[1328px] mx-auto md:p-6">
         {children}
       </main>
+
+      {/* Footer */}
+      <footer className="w-full mb-6 xl:mb-[74px] pt-4">
+        <div className='xl:py-8 xl:bg-white xl:rounded-lg text-center text-sm text-gray-500 max-w-[1280px] mx-auto xl:shadow-sm'>
+          © 2024 tentwenty. All rights reserved.
+        </div>
+      </footer>
       
     </div>
   );

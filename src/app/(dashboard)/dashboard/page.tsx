@@ -27,6 +27,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination"
+import { ArrowDown } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
 // Define the type based on your API structure
@@ -124,9 +125,24 @@ export default function DashboardPage() {
           <Table>
             <TableHeader className="bg-gray-50">
               <TableRow>
-                <TableHead className="w-[107px] text-xs font-semibold text-gray-500 uppercase tracking-wider">Week #</TableHead>
-                <TableHead className="text-xs font-semibold text-gray-500 uppercase">Date</TableHead>
-                <TableHead className="text-xs font-semibold text-gray-500 uppercase">Status</TableHead>
+                <TableHead className="w-[107px] text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                    Week #
+                    <ArrowDown className="size-3.5 text-gray-500" />
+                  </div>
+                </TableHead>
+                <TableHead className="text-xs font-semibold text-gray-500 uppercase">
+                  <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                    Date
+                    <ArrowDown className="size-3.5 text-gray-500" />
+                  </div>
+                </TableHead>
+                <TableHead className="text-xs font-semibold text-gray-500 uppercase">
+                  <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                    Status
+                    <ArrowDown className="size-3.5 text-gray-500" />
+                  </div>
+                </TableHead>
                 <TableHead className="w-[121px] text-center text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</TableHead>
               </TableRow>
             </TableHeader>
@@ -173,7 +189,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Pagination */}
-        <div className="flex items-center justify-between mt-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 mt-6">
           <div className="flex items-center text-sm text-gray-500">
             <Select defaultValue="5">
               <SelectTrigger id="select-rows-per-page">
@@ -191,7 +207,7 @@ export default function DashboardPage() {
             </Select>
           </div>
 
-          <Pagination className="justify-end">
+          <Pagination className="sm:justify-end sm:ml-auto mr-auto ml-0">
             <PaginationContent>
               <PaginationItem><PaginationPrevious href="#" className="text-gray-500" /></PaginationItem>
               <PaginationItem><PaginationLink href="#">1</PaginationLink></PaginationItem>

@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export type TimesheetStatus = "COMPLETED" | "INCOMPLETE" | "MISSING";
 
 /**
- * Calculates the weekly status based on total logged hours.
+ * Calculates the weekly status based on total added hours.
  * 
  * Rules:
  * - completed = 40 hours added by the user

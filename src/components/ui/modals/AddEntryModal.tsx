@@ -77,20 +77,21 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px] p-6">
-        <DialogHeader className="mb-4">
-          <DialogTitle className="text-xl font-bold">
+      <DialogContent className="sm:max-w-161.5 p-0 gap-0">
+        <DialogHeader   className="border-b border-gray-300 p-5">
+          <DialogTitle className="text-xl font-semibold text-gray-900">
             {initialTask ? "Edit Entry" : "Add New Entry"}
           </DialogTitle>
+          
         </DialogHeader>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="p-5">
           <FieldGroup>
             {error && <div className="text-sm text-red-600 bg-red-50 p-2 rounded">{error}</div>}
 
             {/* Project Field */}
-            <Field>
-              <FieldLabel>Select Project *</FieldLabel>
+            <Field className="max-w-91 w-full">
+              <FieldLabel className="text-gray-900">Select Project *</FieldLabel>
               <Select onValueChange={(val) => setProject(val ?? "")} value={project}>
                 <SelectTrigger>
                   <SelectValue placeholder="Project Name" />
@@ -103,8 +104,8 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
             </Field>
 
             {/* Type of Work Field */}
-            <Field>
-              <FieldLabel>Type of Work *</FieldLabel>
+            <Field className="max-w-91 w-full">
+              <FieldLabel className="text-gray-900">Type of Work *</FieldLabel>
               <Select onValueChange={(val) => setTypeOfWork(val ?? "")} value={typeOfWork}>
                 <SelectTrigger>
                   <SelectValue placeholder="Bug fixes" />
@@ -117,12 +118,13 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
             </Field>
 
             {/* Description Field */}
-            <Field>
-              <FieldLabel>Task description *</FieldLabel>
+            <Field className="max-w-123.5 w-full">
+              <FieldLabel className="text-gray-900">Task description *</FieldLabel>
               <Textarea 
                 placeholder="Write text here ..." 
-                className="resize-none min-h-[100px]"
+                className="resize-none min-h-25 max-h-28.75 sm:max-h-40.75"
                 value={description}
+                maxLength={1000}
                 onChange={(e) => setDescription(e.target.value)}
               />
               <FieldDescription>A note for extra info</FieldDescription>
@@ -130,13 +132,13 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
 
             {/* Hours Field */}
             <Field>
-              <FieldLabel>Hours *</FieldLabel>
-              <div className="flex items-center gap-2 max-w-[140px]">
+              <FieldLabel className="text-gray-900">Hours *</FieldLabel>
+              <div className="flex items-center max-w-max">
                 <Button 
                   type="button" 
                   variant="outline" 
                   size="icon" 
-                  className="h-9 w-9 shrink-0 cursor-pointer"
+                  className="h-9 w-9 shrink-0 cursor-pointer rounded-none rounded-l-lg border-r-0 bg-gray-100"
                   onClick={() => setHours((prev) => Math.max(1, prev - 1))}
                 >
                   -
@@ -145,7 +147,7 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                   type="number" 
                   min={1}
                   max={24}
-                  className="text-center h-9 text-base font-medium [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" 
+                  className="text-center h-9 py-2 px-3 tracking-tight text-gray-500  [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none rounded-none" 
                   value={hours || ""}
                   onChange={(e) => {
                     const val = parseInt(e.target.value, 10);
@@ -160,7 +162,7 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                   type="button" 
                   variant="outline" 
                   size="icon" 
-                  className="h-9 w-9 shrink-0 cursor-pointer"
+                  className="h-9 w-9 shrink-0 cursor-pointer rounded-none rounded-r-lg border-l-0 bg-gray-100"
                   onClick={() => setHours((prev) => Math.min(24, prev + 1))}
                 >
                   +
@@ -170,10 +172,10 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
 
             {/* Form Actions */}
             <div className="flex gap-4 pt-4">
-              <Button type="submit" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white cursor-pointer">
+              <Button type="submit" className="flex-1 bg-blue-600 hover:bg-blue-700 text-white cursor-pointer  ">
                 {initialTask ? "Save changes" : "Add entry"}
               </Button>
-              <Button type="button" variant="outline" className="flex-1 cursor-pointer" onClick={onClose}>
+              <Button type="button" variant="outline" className="flex-1 cursor-pointer " onClick={onClose}>
                 Cancel
               </Button>
             </div>
