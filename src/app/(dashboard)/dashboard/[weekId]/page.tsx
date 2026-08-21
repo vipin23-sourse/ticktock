@@ -1,32 +1,17 @@
 "use client";
 
-import React, { use } from "react";
-import { Progress } from "@/components/ui/progress";
+import React, { use, useState } from "react";
+import { Progress, ProgressTrack, ProgressIndicator } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
+import { dailyTasks, Task } from "@/lib/dummyData";
+import { AddEntryModal } from "@/components/ui/modals/AddEntryModal";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-const dailyTasks = [
-  {
-    date: "Jan 21",
-    tasks: [
-      { id: 1, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 2, title: "Homepage Development", hours: 4, project: "Project Name" },
-    ],
-  },
-  {
-    date: "Jan 22",
-    tasks: [
-      { id: 3, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 4, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 5, title: "Homepage Development", hours: 4, project: "Project Name" },
-    ],
-  },
-];
 
 export default function WeeklyTimesheetPage({
   params,
@@ -35,8 +20,21 @@ export default function WeeklyTimesheetPage({
 }) {
   const resolvedParams = use(params);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
+
+  const handleEditTask = (task: Task) => {
+    setEditingTask(task);
+    setIsModalOpen(true);
+  };
+
+  const handleAddTask = () => {
+    setEditingTask(null);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="w-full max-w-5xl mx-auto space-y-8">
+    <div className="w-full mx-auto p-6 bg-white rounded-md">
       
       {/* Header Section */}
       <div className="flex justify-between items-start">
@@ -51,7 +49,7 @@ export default function WeeklyTimesheetPage({
             <span className="text-gray-900">20/40 hrs</span>
             <span className="text-gray-500">50%</span>
           </div>
-          <Progress value={50} className="h-2 bg-gray-200" />
+          <Progress value={50}  />
         </div>
       </div>
 
@@ -65,7 +63,7 @@ export default function WeeklyTimesheetPage({
               {day.tasks.map((task) => (
                 <div 
                   key={task.id} 
-                  className="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg shadow-sm"
+                  className="flex items-center justify-between px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900"
                 >
                   <span className="font-medium text-gray-900">{task.title}</span>
                   <div className="flex items-center gap-4">
@@ -76,14 +74,16 @@ export default function WeeklyTimesheetPage({
                     
                     {/* 3-Dot Actions Menu */}
                     <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-gray-600">
-                          <span className="sr-only">Open menu</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-                        </Button>
+                      <DropdownMenuTrigger
+                        render={
+                          <Button variant="ghost" className="h-8 w-8 p-0 text-gray-400 hover:text-gray-600" />
+                        }
+                      >
+                        <span className="sr-only">Open menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem onClick={() => handleEditTask(task)}>Edit</DropdownMenuItem>
                         <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -92,13 +92,23 @@ export default function WeeklyTimesheetPage({
               ))}
               
               {/* Add Task Button for each day */}
-              <button className="w-full py-3 border-2 border-dashed border-blue-200 text-blue-600 bg-blue-50/50 rounded-lg font-medium text-sm hover:bg-blue-50 transition-colors">
+              <button 
+                onClick={handleAddTask}
+                className="w-full py-3 border-2 border-dashed border-blue-200 text-blue-600 bg-blue-50/50 rounded-lg font-medium text-sm hover:bg-blue-50 transition-colors"
+              >
                 + Add new task
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Entry Modal for Add & Edit */}
+      <AddEntryModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialTask={editingTask}
+      />
     </div>
   );
 }

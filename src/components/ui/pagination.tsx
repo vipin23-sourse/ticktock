@@ -10,7 +10,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
       role="navigation"
       aria-label="pagination"
       data-slot="pagination"
-      className={cn("mx-auto flex w-full justify-center", className)}
+      className={cn("ml-auto flex  justify-center border border-gray-200 rounded-xl", className)}
       {...props}
     />
   )
@@ -23,14 +23,14 @@ function PaginationContent({
   return (
     <ul
       data-slot="pagination-content"
-      className={cn("flex items-center gap-0.5", className)}
+      className={cn("flex items-center", className)}
       {...props}
     />
   )
 }
 
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
-  return <li data-slot="pagination-item" {...props} />
+  return <li  data-slot="pagination-item" {...props} />
 }
 
 type PaginationLinkProps = {
@@ -48,13 +48,14 @@ function PaginationLink({
     <Button
       variant={isActive ? "outline" : "ghost"}
       size={size}
-      className={cn(className)}
+      className={cn("border-0 rounded-none border-r border-r-gray-200 m-0",className)}
       nativeButton={false}
       render={
         <a
           aria-current={isActive ? "page" : undefined}
           data-slot="pagination-link"
           data-active={isActive}
+          className="size-10.5 !text-body"
           {...props}
         />
       }
@@ -71,7 +72,7 @@ function PaginationPrevious({
     <PaginationLink
       aria-label="Go to previous page"
       size="default"
-      className={cn("pl-1.5!", className)}
+      className={cn("pl-1.5! border-r-gray-200 w-auto", className)}
       {...props}
     >
       <ChevronLeftIcon data-icon="inline-start" />
@@ -89,7 +90,7 @@ function PaginationNext({
     <PaginationLink
       aria-label="Go to next page"
       size="default"
-      className={cn("pr-1.5!", className)}
+      className={cn("pr-1.5! w-auto", className)}
       {...props}
     >
       <span className="hidden sm:block">{text}</span>
@@ -107,7 +108,7 @@ function PaginationEllipsis({
       aria-hidden
       data-slot="pagination-ellipsis"
       className={cn(
-        "flex size-8 items-center justify-center [&_svg:not([class*='size-'])]:size-4",
+        "flex items-center size-8 justify-center [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

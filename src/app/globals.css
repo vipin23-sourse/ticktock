@@ -6,7 +6,22 @@
 
 @theme inline {
   --color-primary: #1C64F2;
-  --font-sans: var(--font-sans);
+  --color-text-brand:#1447E6;
+  --color-text-body:#4A5565;
+  --color-gray-50:#F9FAFB;
+  --color-gray-200:#E5E7EB;
+  --color-gray-300:#D1D5DB;
+  --color-gray-500:#6B7280;
+  --color-gray-900:#111928;
+  --color-green-100:#DEF7EC;
+  --color-green-800:#03543F;
+  --color-yellow-100:#FDF6B2;
+  --color-yellow-800:#723B13;
+  --color-pink-100:#FCE8F3;
+  --color-pink-800:#99154B;
+
+
+  --font-sans: var(--font-inter-sans);
   --spacing-layout: 90rem;
   --spacing-72:4.5rem;
   --font-heading: var(--font-sans);
@@ -50,12 +65,12 @@
 }
 
 body {
-  @apply font-sans
+  @apply font-sans;
 }
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: #4A5565;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
