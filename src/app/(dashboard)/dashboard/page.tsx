@@ -176,7 +176,7 @@ export default function DashboardPage() {
                     <TableCell className="text-center">
                       <Link
                         href={`/dashboard/${row.id}`}
-                        className="text-primary hover:text-primary/80 font-medium text-sm transition-colors"
+                        className="text-primary-600 hover:text-primary/80 font-medium text-sm transition-colors"
                       >
                         {row.action}
                       </Link>
@@ -207,7 +207,7 @@ export default function DashboardPage() {
             </Select>
           </div>
 
-          <Pagination className="sm:justify-end sm:ml-auto mr-auto ml-0">
+          <Pagination className="sm:justify-end sm:ml-auto mr-auto sm:mr-0 ml-0">
             <PaginationContent>
               <PaginationItem><PaginationPrevious href="#" className="text-gray-500" /></PaginationItem>
               <PaginationItem><PaginationLink href="#">1</PaginationLink></PaginationItem>
