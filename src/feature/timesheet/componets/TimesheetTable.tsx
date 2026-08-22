@@ -98,25 +98,25 @@ export const TimesheetTable = ({ initialTimesheets }: TimesheetTableProps) => {
           <Table>
             <TableHeader className="bg-gray-50">
               <TableRow>
-                <TableHead className="w-[107px] text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                <TableHead className="w-[10%] text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
                     Week #
                     <ArrowDown className="size-3.5 text-gray-500" />
                   </div>
                 </TableHead>
-                <TableHead className="text-xs font-semibold text-gray-500 uppercase">
+                <TableHead className="w-[40%] text-xs font-semibold text-gray-500 uppercase">
                   <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
                     Date
                     <ArrowDown className="size-3.5 text-gray-500" />
                   </div>
                 </TableHead>
-                <TableHead className="text-xs font-semibold text-gray-500 uppercase">
+                <TableHead className="w-[40%] text-xs font-semibold text-gray-500 uppercase">
                   <div className="inline-flex items-center gap-1.5 cursor-pointer select-none">
                     Status
                     <ArrowDown className="size-3.5 text-gray-500" />
                   </div>
                 </TableHead>
-                <TableHead className="w-[121px] text-center text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                <TableHead className="w-[10%] text-center text-xs font-semibold text-gray-500 uppercase tracking-wider">
                   Actions
                 </TableHead>
               </TableRow>
