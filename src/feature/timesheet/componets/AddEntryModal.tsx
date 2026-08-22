@@ -202,8 +202,8 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                 {isSubmitting
                   ? "Saving..."
                   : initialTask
-                  ? "Save changes"
-                  : "Add entry"}
+                    ? "Save changes"
+                    : "Add entry"}
               </Button>
               <Button
                 type="button"

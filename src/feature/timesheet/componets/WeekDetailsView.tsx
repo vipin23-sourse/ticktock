@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { DailyTasks, Task } from "@/lib/dummyData";
-import { AddEntryModal } from "@/components/ui/modals/AddEntryModal";
+import { AddEntryModal } from "./AddEntryModal";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
 import {
