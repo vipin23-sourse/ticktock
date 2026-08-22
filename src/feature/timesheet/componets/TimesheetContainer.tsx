@@ -1,21 +1,18 @@
-import React from 'react'
-  const fetchTimesheets = async () => {
-      try {
-        const response = await fetch('/api/timesheets');
-        if (!response.ok) throw new Error("Failed to fetch data");
 
-        const json = await response.json();
-        // Assuming your API returns { data: [...] }
-        return json.data;
-      } catch (err) {
-        return ("Could not load timesheets. Please try again.");
-      } 
-    };
-const TimesheetContainer = async() => {
-    const timesheets = await fetchTimesheets();
-  return (
-    <div>{JSON.stringify(timesheets)}</div>
-  )
-}
+import React from "react";
+import { timesheets, TimesheetEntry } from "@/lib/dummyData";
+import { TimesheetTable } from "./TimesheetTable";
 
-export default TimesheetContainer
+// Server-side data fetching function (directly accesses data on the server)
+const fetchTimesheets = async (): Promise<TimesheetEntry[]> => {
+  // In Server Components, query database or data layer directly
+  return timesheets;
+};
+
+const TimesheetContainer = async () => {
+  const data = await fetchTimesheets();
+
+  return <TimesheetTable initialTimesheets={data} />;
+};
+
+export default TimesheetContainer;
