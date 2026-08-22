@@ -21,7 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel, FieldDescription } from "@/components/ui/field";
 import { Task } from "@/lib/dummyData";
-import { entrySchema, type EntryFormData } from "./schema";
+import { entrySchema, type EntryFormData } from "../schema";
 
 interface AddEntryModalProps {
   isOpen: boolean;
@@ -91,7 +91,7 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
         <form onSubmit={handleSubmit(onSubmit)} className="p-5">
           <FieldGroup>
             {/* Project Field */}
-            <Field className="max-w-91 w-full">
+            <Field className="max-w-91 w-full relative">
               <FieldLabel className="text-gray-900">Select Project *</FieldLabel>
               <Select
                 onValueChange={(val) => setValue("project", val ?? "", { shouldValidate: true })}
@@ -106,14 +106,14 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                 </SelectContent>
               </Select>
               {errors.project && (
-                <p className="text-xs font-medium text-red-500 mt-1">
+                <p className="text-xs font-medium text-red-500 absolute -bottom-5 left-0">
                   {errors.project.message}
                 </p>
               )}
             </Field>
 
             {/* Type of Work Field */}
-            <Field className="max-w-91 w-full">
+            <Field className="max-w-91 w-full relative">
               <FieldLabel className="text-gray-900">Type of Work *</FieldLabel>
               <Select
                 onValueChange={(val) => setValue("typeOfWork", val ?? "", { shouldValidate: true })}
@@ -128,14 +128,14 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                 </SelectContent>
               </Select>
               {errors.typeOfWork && (
-                <p className="text-xs font-medium text-red-500 mt-1">
+                <p className="text-xs font-medium text-red-500 absolute -bottom-5 left-0">
                   {errors.typeOfWork.message}
                 </p>
               )}
             </Field>
 
             {/* Description Field */}
-            <Field className="max-w-123.5 w-full">
+            <Field className="max-w-123.5 w-full relative">
               <FieldLabel className="text-gray-900">Task description *</FieldLabel>
               <Textarea
                 placeholder="Write text here ..."
@@ -145,14 +145,14 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
               />
               <FieldDescription>A note for extra info</FieldDescription>
               {errors.description && (
-                <p className="text-xs font-medium text-red-500 mt-1">
+                <p className="text-xs font-medium text-red-500 absolute -bottom-5 left-0">
                   {errors.description.message}
                 </p>
               )}
             </Field>
 
             {/* Hours Field */}
-            <Field>
+            <Field className="relative">
               <FieldLabel className="text-gray-900">Hours *</FieldLabel>
               <div className="flex items-center max-w-max">
                 <Button
@@ -186,7 +186,7 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
                 </Button>
               </div>
               {errors.hours && (
-                <p className="text-xs font-medium text-red-500 mt-1">
+                <p className="text-xs font-medium text-red-500 absolute -bottom-5 left-0">
                   {errors.hours.message}
                 </p>
               )}

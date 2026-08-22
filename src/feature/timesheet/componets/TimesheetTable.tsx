@@ -141,7 +141,7 @@ export const TimesheetTable = ({ initialTimesheets }: TimesheetTableProps) => {
                     <TableCell className="text-center">
                       <Link
                         href={`/dashboard/${row.id}`}
-                        className="text-primary-600 hover:text-primary/80 font-medium text-sm transition-colors"
+                        className="text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
                       >
                         {row.action}
                       </Link>

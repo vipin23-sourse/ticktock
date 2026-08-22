@@ -76,7 +76,7 @@ export const WeekDetailsView = ({
   };
 
   return (
-    <div className="w-full mx-auto p-5 md:p-6 bg-white rounded-md">
+    <div className="w-full mx-auto p-5 md:p-6 bg-white rounded-md shadow-sm">
       {/* Header Section */}
       <div className="flex justify-between flex-wrap gap-4 items-start">
         <div>

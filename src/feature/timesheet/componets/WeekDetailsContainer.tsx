@@ -6,7 +6,6 @@ import WeekDetailsView from "./WeekDetailsView";
 const fetchWeekDetails = async (
   weekId: string
 ): Promise<DailyTasks[]> => {
-  // In a real application, fetch from DB using weekId: await db.week.findUnique({ where: { id: weekId } })
   return dailyTasks;
 };
 

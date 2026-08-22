@@ -48,7 +48,7 @@ export default function DashboardLayout({
       {/* Footer */}
       <footer className="w-full mb-6 xl:mb-[74px] pt-4">
         <div className='xl:py-8 xl:bg-white xl:rounded-lg text-center text-sm text-gray-500 max-w-[1280px] mx-auto xl:shadow-sm'>
-          © 2024 tentwenty. All rights reserved.
+          © {new Date().getFullYear()} tentwenty. All rights reserved.
         </div>
       </footer>
       
