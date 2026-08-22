@@ -10,16 +10,16 @@ const LoginPage = () => {
     <section className="h-screen bg-primary">
       <div className="w-full h-full flex flex-col justify-center items-center md:grid md:grid-cols-2 sm:p-0 p-5">
         
-          <div className='flex items-center justify-center my-4 '>
-            <h1 className="text-white leading-tight text-xl font-bold">Welcome back</h1>
-          </div>
+          
+            <h1 className="text-white max-sm:mt-auto leading-tight text-xl font-bold md:hidden block">Welcome back</h1>
+        
         
 
         {/* Left Form Column */}
-        <div className="grid items-center w-full h-full px-5 sm:px-20 md:px-30 lg:px-40 xl:px-72 bg-white sm:rounded-none rounded-lg py-6 sm:py-0">
+        <div className="grid items-center w-full max-sm:mt-5 max-sm:mb-auto sm:h-full px-5 sm:px-20 md:px-30 lg:px-40 xl:px-72 bg-white sm:rounded-none rounded-lg py-6 sm:py-0">
           <div className="max-w-xl w-full mx-auto">
           
-              <h1 className="text-black leading-tight text-xl font-bold mb-5">Welcome back</h1>
+              <h1 className="text-black leading-tight text-xl font-bold mb-5 md:block hidden">Welcome back</h1>
           
 
             <LoginForm />
@@ -27,7 +27,7 @@ const LoginPage = () => {
         </div>
 
 
-        <div className="bg-primary h-full px-4 sm:px-20 md:px-30 lg:px-40 xl:px-72 text-white grid items-center my-auto text-center md:text-left py-6 md:py-0">
+        <div className="bg-primary max-sm:items-end max-sm:m-0 sm:h-full px-4 sm:px-20 md:px-30 lg:px-40 xl:px-72 text-white grid items-center my-auto text-center md:text-left py-6 md:py-0">
           <div className="max-w-xl mx-auto md:mx-0">
             <h1 className="text-lg sm:text-[2.5rem] font-semibold leading-normal mb-3">ticktock</h1>
             <p className='sm:text-normal text-sm'>
