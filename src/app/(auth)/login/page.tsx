@@ -1,11 +1,11 @@
 
 
-import React, { Suspense } from "react";
+import React from "react";
 import LoginForm from "@/feature/auth/components/LoginForm";
 
 const LoginPage = () => {
   return (
-    <section className="h-screen bg-primary">
+    <section className="min-h-full h-full bg-primary">
       <div className="w-full h-full flex flex-col justify-center items-center md:grid md:grid-cols-2 sm:p-0 p-5">
         <h1 className="text-white max-sm:mt-auto leading-tight text-xl font-bold md:hidden block">
           Welcome back
@@ -18,9 +18,7 @@ const LoginPage = () => {
               Welcome back
             </h1>
 
-            <Suspense fallback={<div className="text-sm text-gray-500 py-4">Loading form...</div>}>
-              <LoginForm />
-            </Suspense>
+            <LoginForm />
           </div>
         </div>
 
