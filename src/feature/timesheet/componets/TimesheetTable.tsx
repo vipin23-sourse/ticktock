@@ -31,7 +31,8 @@ import { ArrowDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { TimesheetEntry } from "@/lib/dummyData";
 
-const StatusBadge = ({ status }: { status: string }) => {
+const StatusBadge = ({ status }: { status?: string }) => {
+  if (!status) return null;
   switch (status.toUpperCase()) {
     case "COMPLETED":
       return <Badge className="bg-green-100 text-green-800">COMPLETED</Badge>;
@@ -45,20 +46,21 @@ const StatusBadge = ({ status }: { status: string }) => {
 };
 
 interface TimesheetTableProps {
-  initialTimesheets: TimesheetEntry[];
+  initialTimesheets?: TimesheetEntry[];
 }
 
-export const TimesheetTable = ({ initialTimesheets }: TimesheetTableProps) => {
+export const TimesheetTable = ({ initialTimesheets = [] }: TimesheetTableProps) => {
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [dateFilter, setDateFilter] = useState<string>("all");
 
-  const filteredTimesheets = initialTimesheets.filter((row) => {
+  const filteredTimesheets = (initialTimesheets ?? []).filter((row) => {
+    if (!row) return false;
     const matchesStatus =
       statusFilter === "all" ||
-      row.status.toUpperCase() === statusFilter.toUpperCase();
+      (row.status ? row.status.toUpperCase() === statusFilter.toUpperCase() : false);
     const matchesDate =
       dateFilter === "all" ||
-      row.dateRange.toLowerCase().includes(dateFilter.toLowerCase());
+      (row.dateRange ? row.dateRange.toLowerCase().includes(dateFilter.toLowerCase()) : false);
     return matchesStatus && matchesDate;
   });
 
@@ -122,7 +124,7 @@ export const TimesheetTable = ({ initialTimesheets }: TimesheetTableProps) => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredTimesheets.length === 0 ? (
+              {!filteredTimesheets || filteredTimesheets.length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={4} className="text-center py-10 text-gray-500">
                     No timesheets found matching your filter criteria.
@@ -130,21 +132,23 @@ export const TimesheetTable = ({ initialTimesheets }: TimesheetTableProps) => {
                 </TableRow>
               ) : (
                 filteredTimesheets.map((row) => (
-                  <TableRow key={row.id}>
+                  <TableRow key={row?.id}>
                     <TableCell className="font-medium text-gray-900 bg-gray-50">
-                      {row.id}
+                      {row?.id ?? "-"}
                     </TableCell>
-                    <TableCell className="text-gray-500">{row.dateRange}</TableCell>
+                    <TableCell className="text-gray-500">{row?.dateRange ?? ""}</TableCell>
                     <TableCell>
-                      <StatusBadge status={row.status} />
+                      <StatusBadge status={row?.status} />
                     </TableCell>
                     <TableCell className="text-center">
-                      <Link
-                        href={`/dashboard/${row.id}`}
-                        className="text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
-                      >
-                        {row.action}
-                      </Link>
+                      {row?.id != null && (
+                        <Link
+                          href={`/dashboard/${row.id}`}
+                          className="text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors"
+                        >
+                          {row?.action ?? "View"}
+                        </Link>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))

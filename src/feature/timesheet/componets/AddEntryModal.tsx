@@ -55,7 +55,7 @@ export function AddEntryModal({ isOpen, onClose, initialTask }: AddEntryModalPro
     if (isOpen) {
       if (initialTask) {
         reset({
-          project: initialTask.project.toLowerCase().includes("b") ? "project-b" : "project-a",
+          project: (initialTask.project ?? "").toLowerCase().includes("b") ? "project-b" : "project-a",
           typeOfWork: "bug-fixes",
           description: initialTask.title || "",
           hours: initialTask.hours || 1,

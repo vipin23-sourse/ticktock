@@ -52,15 +52,15 @@ function TaskActionsMenu({
 }
 
 interface WeekDetailsViewProps {
-  initialDailyTasks: DailyTasks[];
-  weekId: string;
+  initialDailyTasks?: DailyTasks[];
+  weekId?: string;
 }
 
 export const WeekDetailsView = ({
-  initialDailyTasks,
-  weekId,
+  initialDailyTasks = [],
+  weekId = "",
 }: WeekDetailsViewProps) => {
-  const [dailyTasks, setDailyTasks] = useState<DailyTasks[]>(initialDailyTasks);
+  const [dailyTasks, setDailyTasks] = useState<DailyTasks[]>(initialDailyTasks ?? []);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const isMobile = useIsMobile(768);
@@ -98,38 +98,38 @@ export const WeekDetailsView = ({
 
       {/* Daily Tasks List */}
       <div className="space-y-6 mt-6">
-        {dailyTasks.map((day) => (
+        {(dailyTasks ?? []).map((day, idx) => (
           <div
-            key={day.date}
+            key={day?.date ?? idx}
             className="grid md:grid-cols-[108px_1fr] gap-4 md:gap-5 items-start"
           >
-            <h3 className="text-lg font-semibold text-gray-900">{day.date}</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{day?.date ?? ""}</h3>
 
             <div className="space-y-2.5">
-              {day.tasks.map((task) => (
+              {(day?.tasks ?? []).map((task) => (
                 <div
-                  key={task.id}
+                  key={task?.id}
                   className="grid md:grid-cols-[1fr_auto] items-center gap-5 px-3 py-2.5 bg-white border border-gray-200 rounded-lg text-gray-900"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-900">
-                      {task.title}
+                      {task?.title ?? ""}
                     </span>
 
                     {/* 3-Dot Actions Menu Mobile */}
-                    {isMobile && (
+                    {isMobile && task && (
                       <TaskActionsMenu task={task} onEdit={handleEditTask} />
                     )}
                   </div>
                   <div className="flex items-center">
                     <span className="text-sm text-gray-500 mr-2.5">
-                      {task.hours} hrs
+                      {task?.hours ?? 0} hrs
                     </span>
                     <Badge className="bg-primary-100 text-primary-800 mr-2">
-                      {task.project}
+                      {task?.project ?? ""}
                     </Badge>
                     {/* 3-Dot Actions Menu Desktop */}
-                    {!isMobile && (
+                    {!isMobile && task && (
                       <TaskActionsMenu task={task} onEdit={handleEditTask} />
                     )}
                   </div>
