@@ -66,7 +66,7 @@ export const TimesheetTable = ({ initialTimesheets = [] }: TimesheetTableProps) 
 
   return (
     <div className="w-full space-y-6">
-      <div className="bg-white p-6 sm:rounded-xl border border-gray-200 sm:shadow-sm">
+      <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
         <div className="text-2xl font-bold text-gray-900 mb-6">Your Timesheets</div>
 
         {/* Filters */}
