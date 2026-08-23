@@ -1,19 +1,11 @@
+import jsonData from "./dummyData.json";
+
 export type TimesheetEntry = {
   id: number;
   dateRange: string;
   status: string;
   action: string;
 };
-
-export const timesheets: TimesheetEntry[] = [
-  { id: 1, dateRange: "1 - 5 January, 2024", status: "COMPLETED", action: "View" },
-  { id: 2, dateRange: "8 - 12 January, 2024", status: "COMPLETED", action: "View" },
-  { id: 3, dateRange: "15 - 19 January, 2024", status: "INCOMPLETE", action: "Update" },
-  { id: 4, dateRange: "22 - 26 January, 2024", status: "COMPLETED", action: "View" },
-  { id: 5, dateRange: "28 January - 1 February, 2024", status: "MISSING", action: "Create" },
-];
-
-// Daily Tasks
 
 export type Task = {
   id: number;
@@ -27,20 +19,34 @@ export type DailyTasks = {
   tasks: Task[];
 };
 
-export const dailyTasks: DailyTasks[] = [
-  {
-    date: "Jan 21",
-    tasks: [
-      { id: 1, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 2, title: "Homepage Development", hours: 4, project: "Project Name" },
-    ],
-  },
-  {
-    date: "Jan 22",
-    tasks: [
-      { id: 3, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 4, title: "Homepage Development", hours: 4, project: "Project Name" },
-      { id: 5, title: "Homepage Development", hours: 4, project: "Project Name" },
-    ],
-  },
-];
+export type WeekDetails = {
+  id: number;
+  dateRange: string;
+  status: string;
+  totalHours: number;
+  targetHours: number;
+  dailyTasks: DailyTasks[];
+};
+
+// All timesheet entries for table view
+export const timesheets: TimesheetEntry[] = jsonData.timesheets;
+
+// Helper function to get week details by ID
+export function getWeekDetailsById(weekId: string | number): WeekDetails {
+  const id = Number(weekId);
+  const map = jsonData.weeklyTasksMap as Record<string, WeekDetails>;
+
+  if (map[id]) {
+    return map[id];
+  }
+
+  const timesheet = timesheets.find((t) => t.id === id);
+  return {
+    id,
+    dateRange: timesheet?.dateRange ?? `Week #${id}`,
+    status: timesheet?.status ?? "INCOMPLETE",
+    totalHours: 0,
+    targetHours: 40,
+    dailyTasks: [],
+  };
+}

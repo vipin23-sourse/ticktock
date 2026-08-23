@@ -1,12 +1,12 @@
 import React from "react";
-import { dailyTasks, DailyTasks } from "@/lib/dummyData";
+import { getWeekDetailsById, WeekDetails } from "@/lib/dummyData";
 import WeekDetailsView from "./WeekDetailsView";
 
 // Server-side data fetching helper function for week details
 const fetchWeekDetails = async (
   weekId: string
-): Promise<DailyTasks[]> => {
-  return dailyTasks;
+): Promise<WeekDetails> => {
+  return getWeekDetailsById(weekId);
 };
 
 interface WeekDetailsContainerProps {
@@ -14,9 +14,17 @@ interface WeekDetailsContainerProps {
 }
 
 const WeekDetailsContainer = async ({ weekId }: WeekDetailsContainerProps) => {
-  const tasksData = await fetchWeekDetails(weekId);
+  const weekData = await fetchWeekDetails(weekId);
 
-  return <WeekDetailsView initialDailyTasks={tasksData} weekId={weekId} />;
+  return (
+    <WeekDetailsView
+      weekId={weekId}
+      dateRange={weekData.dateRange}
+      status={weekData.status}
+      initialDailyTasks={weekData.dailyTasks}
+    />
+  );
 };
 
 export default WeekDetailsContainer;
+

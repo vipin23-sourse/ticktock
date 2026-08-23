@@ -1,0 +1,191 @@
+{
+  "timesheets": [
+    {
+      "id": 1,
+      "dateRange": "1 - 5 January, 2024",
+      "status": "COMPLETED",
+      "action": "View"
+    },
+    {
+      "id": 2,
+      "dateRange": "8 - 12 January, 2024",
+      "status": "COMPLETED",
+      "action": "View"
+    },
+    {
+      "id": 3,
+      "dateRange": "15 - 19 January, 2024",
+      "status": "INCOMPLETE",
+      "action": "Update"
+    },
+    {
+      "id": 4,
+      "dateRange": "22 - 26 January, 2024",
+      "status": "COMPLETED",
+      "action": "View"
+    },
+    {
+      "id": 5,
+      "dateRange": "28 January - 1 February, 2024",
+      "status": "MISSING",
+      "action": "Create"
+    }
+  ],
+  "weeklyTasksMap": {
+    "1": {
+      "id": 1,
+      "dateRange": "1 - 5 January, 2024",
+      "status": "COMPLETED",
+      "totalHours": 40,
+      "targetHours": 40,
+      "dailyTasks": [
+        {
+          "date": "Jan 1",
+          "tasks": [
+            { "id": 101, "title": "Initial Project Setup & Tech Stack Config", "hours": 4, "project": "Project A" },
+            { "id": 102, "title": "Database Schema Design & Migration", "hours": 4, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 2",
+          "tasks": [
+            { "id": 103, "title": "Auth Flow Implementation & Middleware", "hours": 8, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 3",
+          "tasks": [
+            { "id": 104, "title": "Timesheet Table UI & Pagination", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 4",
+          "tasks": [
+            { "id": 105, "title": "Form Validation with Zod & React Hook Form", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 5",
+          "tasks": [
+            { "id": 106, "title": "Code Review & Bug Fixes", "hours": 8, "project": "Project A" }
+          ]
+        }
+      ]
+    },
+    "2": {
+      "id": 2,
+      "dateRange": "8 - 12 January, 2024",
+      "status": "COMPLETED",
+      "totalHours": 40,
+      "targetHours": 40,
+      "dailyTasks": [
+        {
+          "date": "Jan 8",
+          "tasks": [
+            { "id": 201, "title": "API Integration & Endpoints Setup", "hours": 8, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 9",
+          "tasks": [
+            { "id": 202, "title": "Component Styling & Design System Updates", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 10",
+          "tasks": [
+            { "id": 203, "title": "Unit Testing & Jest Configuration", "hours": 8, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 11",
+          "tasks": [
+            { "id": 204, "title": "Responsive Layout Adjustments for Mobile", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 12",
+          "tasks": [
+            { "id": 205, "title": "Sprint Demo Preparation & Documentation", "hours": 8, "project": "Project A" }
+          ]
+        }
+      ]
+    },
+    "3": {
+      "id": 3,
+      "dateRange": "15 - 19 January, 2024",
+      "status": "INCOMPLETE",
+      "totalHours": 20,
+      "targetHours": 40,
+      "dailyTasks": [
+        {
+          "date": "Jan 15",
+          "tasks": [
+            { "id": 301, "title": "Homepage Development & Hero Section", "hours": 4, "project": "Project A" },
+            { "id": 302, "title": "Header Navigation & Dropdown Component", "hours": 4, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 16",
+          "tasks": [
+            { "id": 303, "title": "Dashboard Skeleton Loader & Suspense State", "hours": 4, "project": "Project B" },
+            { "id": 304, "title": "Profile Page Wireframe & UI", "hours": 4, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 17",
+          "tasks": [
+            { "id": 305, "title": "Refactoring State Management", "hours": 4, "project": "Project A" }
+          ]
+        }
+      ]
+    },
+    "4": {
+      "id": 4,
+      "dateRange": "22 - 26 January, 2024",
+      "status": "COMPLETED",
+      "totalHours": 40,
+      "targetHours": 40,
+      "dailyTasks": [
+        {
+          "date": "Jan 22",
+          "tasks": [
+            { "id": 401, "title": "Performance Optimization & Lazy Loading", "hours": 8, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 23",
+          "tasks": [
+            { "id": 402, "title": "Accessibility Audit & ARIA Labels Fix", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 24",
+          "tasks": [
+            { "id": 403, "title": "Dark Mode Theme Provider Implementation", "hours": 8, "project": "Project A" }
+          ]
+        },
+        {
+          "date": "Jan 25",
+          "tasks": [
+            { "id": 404, "title": "E2E Testing with Playwright", "hours": 8, "project": "Project B" }
+          ]
+        },
+        {
+          "date": "Jan 26",
+          "tasks": [
+            { "id": 405, "title": "Production Build Deployment & QA", "hours": 8, "project": "Project A" }
+          ]
+        }
+      ]
+    },
+    "5": {
+      "id": 5,
+      "dateRange": "28 January - 1 February, 2024",
+      "status": "MISSING",
+      "totalHours": 0,
+      "targetHours": 40,
+      "dailyTasks": []
+    }
+  }
+}

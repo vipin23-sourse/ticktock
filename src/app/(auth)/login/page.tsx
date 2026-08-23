@@ -26,9 +26,9 @@ const LoginPage = () => {
 
         <div className="bg-primary max-sm:items-end max-sm:m-0 sm:h-full px-4 sm:px-20 md:px-30 lg:px-40 xl:px-72 text-white grid items-center my-auto text-center md:text-left py-6 md:py-0">
           <div className="max-w-xl mx-auto md:mx-0">
-            <h1 className="text-lg sm:text-[2.5rem] font-semibold leading-normal mb-3">
+            <h2 className="text-lg sm:text-[2.5rem] font-semibold leading-normal mb-3">
               ticktock
-            </h1>
+            </h2>
             <p className="sm:text-normal text-sm">
               Introducing ticktock, our cutting-edge timesheet web application designed to revolutionize how you manage employee work hours. With ticktock, you can effortlessly track and monitor employee attendance and productivity from anywhere, anytime, using any internet-connected device.
             </p>
