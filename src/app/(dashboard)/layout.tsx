@@ -9,7 +9,7 @@ export default function DashboardLayout({
 }) {
   return (
     
-    <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
+    <div className="min-h-full h-full sm:bg-[#F8F8F8] flex flex-col">
       
       {/* Top Navigation Bar */}
       <header className="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-4 sticky top-0 z-10">

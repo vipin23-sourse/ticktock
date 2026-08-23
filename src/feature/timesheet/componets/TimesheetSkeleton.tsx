@@ -3,7 +3,7 @@ import React from "react";
 export const TimesheetSkeleton = () => {
   return (
     <div className="w-full space-y-6 animate-pulse">
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+      <div className="bg-white p-6 sm:rounded-xl border border-gray-200 sm:shadow-sm">
         {/* Title Skeleton */}
         <div className="h-8 w-48 bg-gray-200 rounded mb-6"></div>
 
