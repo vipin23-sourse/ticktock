@@ -12,7 +12,7 @@ const LoginPage = () => {
         </h1>
 
         {/* Left Form Column */}
-        <div className="grid items-center w-full max-sm:mt-5 max-sm:mb-auto sm:h-full px-5 md:px-20 lg:px-30 xl:px-40 2xl:px-72 bg-white sm:rounded-none rounded-lg py-6 sm:py-0">
+        <div className="grid items-center w-full max-sm:mt-5 max-sm:mb-auto sm:h-full px-5 md:px-15 xl:px-20 2xl:px-72 bg-white sm:rounded-none rounded-lg py-6 sm:py-0">
           <div className="max-w-xl w-full mx-auto">
             <h1 className="text-black leading-tight text-xl font-bold mb-5 md:block hidden">
               Welcome back
@@ -22,7 +22,7 @@ const LoginPage = () => {
           </div>
         </div>
 
-        <div className="bg-primary max-sm:items-end max-sm:m-0 sm:h-full px-5 md:px-20 lg:px-30 xl:px-40 2xl:px-72 text-white grid items-center my-auto text-center md:text-left py-6 md:py-0">
+        <div className="bg-primary max-sm:items-end max-sm:m-0 sm:h-full px-5 md:px-15  xl:px-20 2xl:px-72 text-white grid items-center my-auto text-center md:text-left py-6 md:py-0">
           <div className="max-w-xl mx-auto md:mx-0">
             <h2 className="text-lg sm:text-[2.5rem] font-semibold leading-normal mb-3">
               ticktock
